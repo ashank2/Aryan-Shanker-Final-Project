@@ -1,0 +1,9 @@
+# .gitignore for Evora Personal Transportation AI Assistant Project:
+
+# Ignore Python cache files and compiled bytecode to keep the repository clean.
+# Ignore environment variables file to protect API keys and secrets.
+# This will help to maintain security and enhance organization of code. 
+
+__pycache__/
+.env
+*.pyc
