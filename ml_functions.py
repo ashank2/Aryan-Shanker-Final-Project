@@ -43,10 +43,13 @@ def recommend_greener_mode(distance_km, current_mode):
 
     Returning a simple, and effective recommendation message for the user.
     """
+
+    distance_km = float(distance_km) # For debugging purposes on frontend. To ensure distance_km is a float. 
+
     # AI was used for debugging purposes in line 50 and line 56.
     # Suggest to the user to walk for short trips under 2km, if they are choosing
     # other, less emission friendly modes of transport for these distances. 
-    if distance_km <2:
+    if distance_km < 2:
         if current_mode != "walk":
             return "For short trips undr 2km, consider walking for zero carbon emission emiitance and for superior health benefits!"
     
