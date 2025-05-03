@@ -5,7 +5,7 @@
 import requests # Import requests library to handle HTTPS requests for utilizing APIs.
 from config import MAPBOX_TOKEN, CLIMATIQ_API_KEY # From config.py import our APIs.  
 
-def geocode_location(place_name, mapbox_token=MAPBOX_TOKEN):
+def geocode_location(place_name, mapbox_token=MAPBOX_TOKEN): # Storing the Mapbox API Token as a variable and using it as a default. 
     """
     Utilization of the Mapbox Geocoding API to get the coordinates (longitude, latitude) of 
     a place. 
@@ -22,7 +22,7 @@ def geocode_location(place_name, mapbox_token=MAPBOX_TOKEN):
 
     #  Used AI for debugging in the below lines (line 26 - 29).
     #  Set up the parameters for the API Geocoding GET Request:
-    # "access_token" is needed for authentication. "limit" restricts the results to the one, top match.
+    # "access_token" is needed for authentication for Mapbox API requests. "limit" restricts the results to the one, top match.
     params = {
         "access_token": mapbox_token, 
         "limit": 1 
@@ -32,7 +32,9 @@ def geocode_location(place_name, mapbox_token=MAPBOX_TOKEN):
     # Used AI for debugging in the below lines (line 34, line 38, line 52 - 54).
     try:
         response = requests.get(url, params=params, timeout=5)
-        # Make the GET request to the Mapbox API, with specified parameters. 
+        # Make the GET request to the Mapbox API, with specified parameters,
+        # in order to retrieve data from a server, in this case, the geographic coordinates
+        # (longitude, latitude) for the user's given place name or address is being requested.
         # Setting a waiting time of 5 seconds for the function to complete.
 
         response.raise_for_status()
@@ -62,7 +64,7 @@ def geocode_location(place_name, mapbox_token=MAPBOX_TOKEN):
     return None
     # Return None if the API request does not work, or if no coordinates are found for the specific place. 
 
-def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY):
+def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY): # Storing the Climatiq API Key as a variable and using it as a default. 
     """
     Estimate CO2 emissions for each user's individual trips using the 
     Climatiq API. 
@@ -84,8 +86,15 @@ def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY):
         "Content-Type":"application/json"
     }
     # Create the payload (data to send) for the POST request. 
+    # A POST request is an HTTP method used to send data to a server,
+    # in this case, we are sending user trip details (distance and mode of transport),
+    # in the request to the API. 
+
     # "distance" is a dictionary specifying the value and the unit. 
     # "transport_mode" is the type of transportation used by the user (ex: car, train). 
+    # The payload is the actual data sent (the body of the POST request to the API),
+    # as in the below line, it contains the trip details, to then be sent to the API
+    # as a request to calculate the user's carbon emissions of their transportation. 
     payload = {
         "distance": {"value": distance_km, "unit": "km"}, "transport_mode": mode
     }
@@ -118,15 +127,22 @@ def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY):
     # Return None if the API request does not work, or if emissions couldn't be calculated for the specified trip.
 
 # Testing the functions above, for users: 
-if __name__ == "__main__":
-
+def main():
+    """
+    Main test to see the functionality of API Integration Functions above,
+    utilizing sample date. 
+    """
+    
     # Ask the user to enter their starting location:
     place = input("Enter your starting location: ")
-    coords = geocode_location(place) # Call the geocode_location function to get coordinates from user's input.
+    coords = geocode_location(place) # Call the geocode_location function to convert place name into geographic coordinates from user's input.
     print("Coordinates:", coords) # Print the coordinates (longitude, latitude) to the user. 
 
     # Ask the user to enter the distance they travelled in kilometres.
     distance = float(input("Enter distance travelled (km):"))
-    mode = input("Enter mode of transport (ex: car, train): ") # Enter their mode of transport.
+    mode = input("Enter mode of transport (ex: car, train): ") # User enters their mode of transport.
     emissions = get_travel_emissions(distance, mode) # Call the get_travel_emissions function to calculate emissions for the user's trip. 
     print("Estimated emissions:", emissions) # Print the emissions calculation to the user. 
+
+if __name__ == "__main__":
+    main()
