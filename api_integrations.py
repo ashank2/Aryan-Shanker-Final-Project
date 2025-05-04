@@ -75,7 +75,12 @@ def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY): 
 
     Returning the calculated Kilograms of CO2 emitted, or None if failed. 
     """
-    # Match the chosen user modes to the form the Climatiq API is familiar with:
+    # Was running into issues with emissions calculations through Climatiq API, 
+    # AI was used for debugging purposes: lines 84 to 95, lines 114 to 123, line 133, line 148 to 149.
+    # Climatiq API needs activity_ids to parse data, needed to write the activity ids below to ensure
+    # data is sent through Climatiq API for emissions calculations effectively. 
+    # Match the chosen user modes of transport to the form the Climatiq API is familiar with:
+
     activity_ids = {
         "car": "passenger_vehicle-vehicle_type_car-fuel_source_na-engine_size_na-vehicle_age_na-vehicle_weight_na",
         "bus": "passenger_vehicle-vehicle_type_bus-fuel_source_na-engine_size_na-vehicle_age_na-vehicle_weight_na",
@@ -84,7 +89,7 @@ def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY): 
         "walking": "passenger_vehicle-vehicle_type_walking",
         "plane": "passenger_flight-route_type_domestic-aircraft_type_na-class_na",
     }
-    activity_id = activity_ids.get(mode.lower())
+    activity_id = activity_ids.get(mode.lower()) 
     if not activity_id:
         print(f"Unsupported mode: {mode}")
         return None
@@ -92,7 +97,7 @@ def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY): 
     # Build the endpoint URL for the Climatiq API to perform its function (emissions calculation).
     url = "https://api.climatiq.io/data/v1/estimate"
     
-    #  Used AI for debugging in the below lines (line 83 - 89).
+    #  Used AI for debugging in the below lines (line 103 - 104).
     #  Set up the HTTP headers, once again calling the API for authentication.
     headers = {
         "Authorization": f"Bearer {climatiq_api_key}",
@@ -100,11 +105,9 @@ def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY): 
     }
     # Create the payload (data to send) for the POST request. 
     # A POST request is an HTTP method used to send data to a server,
-    # in this case, we are sending user trip details (distance and mode of transport),
+    # in this case, we are sending user trip details,
     # in the request to the API. 
 
-    # "distance" is a dictionary specifying the value and the unit. 
-    # "transport_mode" is the type of transportation used by the user (ex: car, train). 
     # The payload is the actual data sent (the body of the POST request to the API),
     # as in the below line, it contains the trip details, to then be sent to the API
     # as a request to calculate the user's carbon emissions of their transportation. 
