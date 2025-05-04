@@ -15,4 +15,3 @@ CLIMATIQ_API_KEY = os.getenv("CLIMATIQ_API_KEY")
 # For debugging purposes (can uncomment the following lines for checks):
 # print("MAPBOX_TOKEN", MAPBOX_TOKEN)
 # print("CLIMATIQ_API_KEY", CLIMATIQ_API_KEY)
-# print("ZYLA_API_KEY", ZYLA_API_KEY)
