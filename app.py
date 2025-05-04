@@ -28,8 +28,8 @@ def home():
     Main route for the landing page.
     Handles the GET (showing of the form) and POST (for processing user input).
     """
-    # AI was used for debugging purposes on line 34, line 41, line 49,
-    # and was used as a help to create result message for the user - lines 53 to 59.
+    # AI was used for debugging purposes on line 34, line 41, line 49, lines 52 to 59.
+    # and was used as a help to create result message for the user - lines 62 to 68.
     result = None # Placeholder for result message.
 
     if request.method == "POST":
@@ -64,7 +64,7 @@ def home():
                 f"<b>Coordinates:</b> {coords} <br>"
                 f"<b>Distance:</b> {distance} km <br>"
                 f"<b>Mode:</b> {mode.capitalize()} <br>"
-                f"<b>Estimated Emissions:</b> {emissions} <br>"
+                f"<b>Estimated Emissions:</b> {emissions_display} <br>"
                 f"<b>Greener Recommendation:</b> {greener_mode}"
             )
         else:
