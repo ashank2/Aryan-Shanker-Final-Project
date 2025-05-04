@@ -49,6 +49,15 @@ def home():
             # Get a greener recommendation using recommend_greener_mode ML Function:
             greener_mode = recommend_greener_mode(float(distance), mode)
 
+            # Handle Emissions Results For Display To Users:
+            if emissions is None:
+                emissions_display = "<i>Could not calculate emissions for this trip.</i>"
+            
+            elif emissions == 0:
+                emissions_display = "Zero emissions!"
+            else:
+                emissions_display = f"{emissions:.2f} kg CO2"
+
             #Build the result message for the user:
             result = (
                 f"<b>Starting Location:</b> {location} <br>"
