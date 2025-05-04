@@ -52,9 +52,7 @@ After combining all these ingredients, the backend was robustly designed, helpin
 Throughout this project, AI was incredibly helpful not only with ensuring the functionality of the code at times where I was running into issues (for debugging purposes), but also in broadening my understanding and my experience with exploring new libraries (ex: especially in creating the latter machine learning functions for Evora in ml_functions.py). Thus, enhancing my awareness of the different avenues that can be taken to improve the feasability of a project (ex: helping me to enter into the realms of CSS, coupled with HTML code to finalze the Evora frontend web app design), bring multiple features to life, and aid in creating a foundational, solid MVP, ready for greater potental future development. 
 
 ## Results:
-- Accurate Emissions Analytics: Providing real-world carbon footprint estimates for various transportation modes, for each user's trips.
-- Personalized AI-based Recommendations: Greener alternatives based on user input.
-- Friendly User Experience & Interface: Clean, simple to grasp, intuitive design for use. 
+Accurate emissions analytics is at the core of Evora's MVP - providing real-world carbon footprint estimates for various transportation modes, for each user's trips. Enabling Geocoding methodologies, with machine learning functions to provide personalized AI-based recommendations, to guide users towards more eco-friendly transportation routines, choices and habits. Particulary in the MVP, Greener alternatives based on user input are being displayed, helping users to begin their first steps towards fully embracing a sustainable lifestyle. Finally, through the creation of a clean, simple to grasp and intuitive design for use, Evora is able to create a friendly user experience, coupled with an easy to understand interface.
 
 ![Screenshot](screenshot.png) 
 The screenshot of the result of the Evora AI Transportation Assistant is also uploaded to the GitHub repository for reference.
