@@ -30,7 +30,7 @@ To download the Mapbox API Token:
 - Go to this link: https://account.mapbox.com/auth/signin/?route-to=https%3A%2F%2Fconsole.mapbox.com%2F%3Fauth%3D1
 - Create an account and sign into your account. Then on the left hand side of your home page, under the heading Admin, click Tokens, then click the round button saying: Create a token. Label your token, and then similar to as you did for Climatiq API Key process, copy the key into your .env file - replacing your_mapbox_token with your actual API token. 
 
-- Now you are ready to go! You have securely created your own API Keys, stored them securely, and now can experiemtn with the code and run the web app! Run the app.py file, and in the terminal, visit the development server link that pops up in a new broswer tab. It will look like this: http://127.0.0.1:5000
+- Now you are ready to go! You have securely created your own API Keys, stored them securely, and now can experiment with the code and run the web app! Run the app.py file, and in the terminal, visit the development server link that pops up in a new broswer tab. It will look like this: http://127.0.0.1:5000
 
 - To stop experimenting with the web app, just press CTRL+C in the terminal to quit. 
 
@@ -44,12 +44,12 @@ To organize my code for this project, creating seperate .py files was the most e
 
 Once that was done, I focused on integrating the APIs in my code (api_integrations.py), creating two main functions calling the Mapbox API and the Climatiq API. Mapbox for geocoding requests - gaining the longitude and latitude of the user's inputted start location, and Climatiq API for carbon emission calculation. This helped to streamline the backend process of providing detailed carbon footprint analytics to users whilst utilizing the web app. 
 
-Following that, to complete the backend development of the Evora MVP, I imported libraries that would help with the Machine Learning/AI aspect of my project and created functions integrating these libraries for better AI analytics for users - to help improve AI-powered recommendation logic (ml_functions.py), leveraging: pandas, numpy, scikit-learn libraries, matplotlib and TexBlob. By pursuing this project, I strecthed myself particularly in the usage of machine learning and data analysis methods - increasing my confidence and curiosity in diving deeper into it in the near future, and appying them to more of my personal projects. 
+Following that, to complete the backend development of the Evora MVP, I imported libraries that would help with the Machine Learning/AI aspect of my project and created functions integrating these libraries for better AI analytics for users - to help improve AI-powered recommendation logic (ml_functions.py), leveraging: pandas, numpy, scikit-learn libraries, matplotlib and TexBlob. By pursuing this project, I strecthed myself particularly in the usage of machine learning and data analysis methods - increasing my confidence and curiosity in diving deeper into it in the near future, and applying them to more of my personal projects. 
 
 After combining all these ingredients, the backend was robustly designed, helping to ease the transition towards front-end web app development. To start, I created (app.py) - the Flask web server, combining backend code, taking in user input and helping to display user results effectively. On top of that, I worked on an index.html file, utilizing mainly HTML and aspects of CSS code to design a simple, effective, and pleasant design! 
 
 ### Use of AI In Development:
-Throughout this project, AI was incredibly helpful not only with ensuring the functionality of the code at times where I was running into issues (for debugging purpose), but also in broadening my understanding and my experience with exploring new libraries (ex: especially in creating the latter machine learning functions for Evora in ml_functions.py). Thus, enhancing my awareness of the different avenues that can be taken to improve the feasability of a project (ex: helping me to enter into the realms of CSS, coupled with HTML code to finalze the Evora frontend web app design), bring multiple features to life, and aid in creating a foundational, solid MVP, ready for greater potental future development. 
+Throughout this project, AI was incredibly helpful not only with ensuring the functionality of the code at times where I was running into issues (for debugging purposes), but also in broadening my understanding and my experience with exploring new libraries (ex: especially in creating the latter machine learning functions for Evora in ml_functions.py). Thus, enhancing my awareness of the different avenues that can be taken to improve the feasability of a project (ex: helping me to enter into the realms of CSS, coupled with HTML code to finalze the Evora frontend web app design), bring multiple features to life, and aid in creating a foundational, solid MVP, ready for greater potental future development. 
 
 ## Results:
 - Accurate Emissions Analytics: Providing real-world carbon footprint estimates for various transportation modes, for each user's trips.
@@ -67,6 +67,8 @@ Evora's MVP development was very fun, and exciting! It was a learning journey of
 - Python Libraries: Flask, pandas, numpy, scikit-learn, matplotlib, TextBlob.
 - AI Assistance: Perplexity For Debugging Purposes & Code Review. 
 
+## Thank You Note:
+Thank you Professor Li for an incredible semester! Going from having limited knowledge of Python to creating my own idea has been an amazing experience! It was a pleasure to be part of your class and learn from you! Stay in touch and see you on campus again next year! In the meantime, I hope you enjoy Evora! ~ Aryan
 
 
 
