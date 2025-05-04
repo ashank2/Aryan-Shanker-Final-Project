@@ -4,7 +4,8 @@
 # Afterwards, I accurately created seperate .py files - for greater organization
 # and effectively altered and completed their functional codes.
 
-# The API Integration Functions Part of this code script was altered completely. 
+# The API Integration Functions Part of this code script was altered completely.
+# AI was used for debugging purposes in the draft code of the API Integration Functions below.
 # Adjustments were made to the Importing APIs section of the code (config.py)
 # as well as to the Adding The Machine Learning Library Stack section (ml_functions.py).
 
