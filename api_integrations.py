@@ -75,9 +75,22 @@ def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY): 
 
     Returning the calculated Kilograms of CO2 emitted, or None if failed. 
     """
-    
+    # Match the chosen user modes to the form the Climatiq API is familiar with:
+    activity_ids = {
+        "car": "passenger_vehicle-vehicle_type_car-fuel_source_na-engine_size_na-vehicle_age_na-vehicle_weight_na",
+        "bus": "passenger_vehicle-vehicle_type_bus-fuel_source_na-engine_size_na-vehicle_age_na-vehicle_weight_na",
+        "train": "passenger_train-route_type_na-fuel_source_na",
+        "bicycle": "passenger_vehicle-vehicle_type_bicycle",
+        "walking": "passenger_vehicle-vehicle_type_walking",
+        "plane": "passenger_flight-route_type_domestic-aircraft_type_na-class_na",
+    }
+    activity_id = activity_ids.get(mode.lower())
+    if not activity_id:
+        print(f"Unsupported mode: {mode}")
+        return None
+
     # Build the endpoint URL for the Climatiq API to perform its function (emissions calculation).
-    url = "https://beta3.api.climatiq.io/travel"
+    url = "https://api.climatiq.io/data/v1/estimate"
     
     #  Used AI for debugging in the below lines (line 83 - 89).
     #  Set up the HTTP headers, once again calling the API for authentication.
@@ -96,16 +109,25 @@ def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY): 
     # as in the below line, it contains the trip details, to then be sent to the API
     # as a request to calculate the user's carbon emissions of their transportation. 
     payload = {
-        "distance": {"value": distance_km, "unit": "km"}, "transport_mode": mode
+        "emission_factor": {
+            "activity_id": activity_id,
+            "data_version": "21.21"
+        },
+        "parameters": {
+            "distance": float(distance_km), 
+            "distance_unit": "km"
+            }
     }
     
     # Error Handling: 
     # Similar to the code used above in the get_location function. 
     
     try:
-        response = requests.post(url, headers=headers, json=payload)
+        response = requests.post(url, headers=headers, json=payload, timeout=5)
         # Make the POST request to the Climatiq API, with the headers and payload (data to send), 
         # setting a waiting time of 5 seconds for the function to complete.
+
+        print("Payload being sent to Climatiq:", payload)
 
         response.raise_for_status()
         # If the function wasn't successful, raise an HTTP error.
@@ -116,10 +138,12 @@ def get_travel_emissions(distance_km, mode, climatiq_api_key=CLIMATIQ_API_KEY): 
         emissions_kg = data.get("co2e", None) 
         # Extract the CO2e value, representing the kilograms of CO2 of emissions emitted.
 
-        return {"emissions_kg": emissions_kg, "source": "climatiq"}
+        return emissions_kg
         # Return the emissions calculated as a dictionary, including the data source (in this case Climatiq). 
 
     except requests.RequestException as e:
+        if e.response is not None:
+            print("Climatiq API error esponse:", e.response.text)
         print(f"Climatiq API Error: {e}")
         # Print the error that occurs during the API request.
 
