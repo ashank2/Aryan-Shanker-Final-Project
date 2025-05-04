@@ -11,15 +11,15 @@ Evora is an AI-powered web application designed to help users make more sustaina
 Climate Change is one of the most monumental worldwide issues in the world today. Global temperatures have already surpassed the 1.5 degree celsius warming threshold, and the transportation sector alone accounts for 24% of global carbon dioxide emissions (with road travel alone making up 3/4 of the 24%). I feel that many people want to make greener choices, but lack the tools and  solutions to understand the impact of their daily travel. Thus, I thought Evora would be an interesting final project to pursue as an entrepreneurial, AI-focused initiative directly helping tp solve the pressing real-world problem of climate change. 
 
 ## User Instructions:
-1. Clone the repository on GitHub to VS Code,
-2.  Once the repository is cloned to your laptop, and all files are accessible, in order to effectively run the code, and as well experience the web application, you need to download two APIs: Mapbox API and Climatiq API. Prior to doing so, create a .env file to securely store your API Keys. In your .env file, it should look like this:
+- Clone the repository on GitHub to VS Code,
+- Once the repository is cloned to your laptop, and all files are accessible, in order to effectively run the code, and as well experience the web application, you need to download two APIs: Mapbox API and Climatiq API. Prior to doing so, create a .env file to securely store your API Keys. In your .env file, it should look like this:
 
 MAPBOX_TOKEN=your_mapbox_token
 CLIMATIQ_API_KEY=your_climatiq_api_key
 
 Once that is done, in the .gitignore file, add .env to ensure that your API Keys are kept private, and are not pushed to a public GitHub repository.
 
-3. Moving onto the downloading process for the API Keys, the two links below will guide you to simply create a free account, and register for a key. Inputting instructions below as well.
+- Moving onto the downloading process for the API Keys, the two links below will guide you to simply create a free account, and register for a key. Inputting instructions below as well.
 
 To download the Climatiq API Key:
 - Go to this link: https://www.climatiq.io/pricing
@@ -30,11 +30,11 @@ To download the Mapbox API Token:
 - Go to this link: https://account.mapbox.com/auth/signin/?route-to=https%3A%2F%2Fconsole.mapbox.com%2F%3Fauth%3D1
 - Create an account and sign into your account. Then on the left hand side of your home page, under the heading Admin, click Tokens, then click the round button saying: Create a token. Label your token, and then similar to as you did for Climatiq API Key process, copy the key into your .env file - replacing your_mapbox_token with your actual API token. 
 
-4. Now you are ready to go! You have securely created your own API Keys, stored them securely, and now can experiemtn with the code and run the web app! Run the app.py file, and in the terminal, visit the development server link that pops up in a new broswer tab. It will look like this: http://127.0.0.1:5000
+- Now you are ready to go! You have securely created your own API Keys, stored them securely, and now can experiemtn with the code and run the web app! Run the app.py file, and in the terminal, visit the development server link that pops up in a new broswer tab. It will look like this: http://127.0.0.1:5000
 
-5. To stop experimenting with the web app, just press CTRL+C in the terminal to quit. 
+- To stop experimenting with the web app, just press CTRL+C in the terminal to quit. 
 
-6. Enjoy and have fun! Enter your starting location, distance (in kilometres) travelled and mode of transport taken, click Calculate Emissions, view your carbon footprint on a trip by trip basis, and receive a greener travel recommendation!
+- Enjoy and have fun! Enter your starting location, distance (in kilometres) travelled and mode of transport taken, click Calculate Emissions, view your carbon footprint on a trip by trip basis, and receive a greener travel recommendation!
 
 ## Implementation Information:
 
@@ -52,9 +52,9 @@ After combining all these ingredients, the backend was robustly designed, helpin
 Throughout this project, AI was incredibly helpful not only with ensuring the functionality of the code at times where I was running into issues (for debugging purpose), but also in broadening my understanding and my experience with exploring new libraries (ex: especially in creating the latter machine learning functions for Evora in ml_functions.py). Thus, enhancing my awareness of the different avenues that can be taken to improve the feasability of a project (ex: helping me to enter into the realms of CSS, coupled with HTML code to finalze the Evora frontend web app design), bring multiple features to life, and aid in creating a foundational, solid MVP, ready for greater potental future development. 
 
 ## Results:
-
-
-
+- Accurate Emissions Analytics: Providing real-world carbon footprint estimates for various transportation modes, for each user's trips.
+- Personalized AI-based Recommendations: Greener alternatives based on user input.
+- Friendly User Experience & Interface: Clean, simple to grasp, intuitive design for use. 
 
 ## Project Evolution/Narrative:
 Evora's MVP development was very fun, and exciting! It was a learning journey of research, iteration and continuous improvement! First I focused on really ensuring the backend was working well and was coded up effectively - constantly checking that APIs were well integrated, stored securely, AI-powered recommendations and analytics for user's personalized feedback was well structured. Writing test functions at the end of code scripts to see how the code ran, and the results given based on sample data was really cool to see! Once all was done, then I moved onto frontend web app development, focusing on a visually appealing user interface, allowing for a simple user experience! My approach to the completion of the final project was via a step by step process, inputting checks and balances to confirm that all aspects of the code (backend and frontend) were combined and running smoothly together!
