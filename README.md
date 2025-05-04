@@ -56,7 +56,8 @@ Throughout this project, AI was incredibly helpful not only with ensuring the fu
 - Personalized AI-based Recommendations: Greener alternatives based on user input.
 - Friendly User Experience & Interface: Clean, simple to grasp, intuitive design for use. 
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.png) 
+The screenshot of the result of the Evora AI Transportation Assistant is also uploaded to the GitHub repository for reference.
 
 ## Project Evolution/Narrative:
 Evora's MVP development was very fun, and exciting! It was a learning journey of research, iteration and continuous improvement! First I focused on really ensuring the backend was working well and was coded up effectively - constantly checking that APIs were well integrated, stored securely, AI-powered recommendations and analytics for user's personalized feedback was well structured. Writing test functions at the end of code scripts to see how the code ran, and the results given based on sample data was really cool to see! Once all was done, then I moved onto frontend web app development, focusing on a visually appealing user interface, allowing for a simple user experience! My approach to the completion of the final project was via a step by step process, inputting checks and balances to confirm that all aspects of the code (backend and frontend) were combined and running smoothly together!
